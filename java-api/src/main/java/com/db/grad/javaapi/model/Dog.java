@@ -9,6 +9,13 @@ public class Dog
         return id;
     }
 
+    public Dog() {
+    }
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
     public void setId(long id) {
         this.id = id;
     }

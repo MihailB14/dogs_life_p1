@@ -39,6 +39,56 @@ public class DogsHandlerTest {
 
     }
 
+    @Test
+    public void add_several_dogs_return_number_of_dogs_match_number_added(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Bingo");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
 
+        int expectedResult = 3;
+
+
+        //acting
+        long actualResult = cut.getNoOfDogs();
+
+
+        //assert
+        assertEquals(expectedResult, actualResult);
+
+
+
+    }
+
+    @Test
+    public void test_for_getDogByName_1(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
+
+       //
+
+
+        //acting
+        Dog actualResult = cut.getDogByName("Robert");
+
+
+        //assert
+        assertEquals(expectedResult, actualResult);
+
+    }
 
 }
