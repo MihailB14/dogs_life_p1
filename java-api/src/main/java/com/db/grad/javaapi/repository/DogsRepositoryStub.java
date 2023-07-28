@@ -32,7 +32,6 @@ public class DogsRepositoryStub implements DogsRepository {
     @Override
     public List<Dog> findByName(Dog aDog) {
         ArrayList<Dog> result = new ArrayList<>();
-
         for( Dog theDog: itsDogs)
             if( theDog.getName().equalsIgnoreCase(aDog.getName()) ) {
                 result.add(theDog);

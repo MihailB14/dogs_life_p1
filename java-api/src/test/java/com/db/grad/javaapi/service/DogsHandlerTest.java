@@ -87,8 +87,131 @@ public class DogsHandlerTest {
 
 
         //assert
-        assertEquals(expectedResult, actualResult);
+        assertEquals(null, actualResult);
 
     }
+
+    @Test
+    public void test_for_getDogByName_2(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
+
+        //
+
+
+        //acting
+        Dog actualResult = cut.getDogByName("Frosty");
+
+
+        //assert
+        assertEquals(theLastDog, actualResult);
+
+    }
+    @Test
+    public void test_for_getDogByName_3(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
+
+        //
+
+
+        //acting
+        Dog actualResult = cut.getDogByName("Oscar");
+
+
+        //assert
+        assertEquals(null, actualResult);
+
+    }
+
+    @Test
+    public void test_for_getDogById_1(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
+
+        //
+
+
+        //acting
+        Dog actualResult = cut.getDogById(3);
+
+
+        //assert
+        assertEquals(theLastDog, actualResult);
+
+    }
+
+    @Test
+    public void test_for_getDogById_2(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        Dog theLastDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        theLastDog.setName("Frosty");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+        cut.addDog(theLastDog);
+
+        //
+
+
+        //acting
+        Dog actualResult = cut.getDogById(4);
+
+
+        //assert
+        assertEquals(null, actualResult);
+
+    }
+
+    @Test
+    public void test_for_RemoveDog_1(){
+        DogHandler cut = new DogHandler(itsDogRepo);
+        Dog theDog = new Dog();
+        Dog theSecDog = new Dog();
+        theDog.setName("Oscar");
+        theSecDog.setName("Oscar");
+        cut.addDog(theDog);
+        cut.addDog(theSecDog);
+
+
+        //
+
+
+        //acting
+        boolean actualResult = cut.removeDog(2);
+
+
+        //assert
+        assertEquals(true, actualResult);
+
+    }
+
 
 }

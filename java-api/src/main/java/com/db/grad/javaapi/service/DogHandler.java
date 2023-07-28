@@ -4,6 +4,8 @@ import com.db.grad.javaapi.model.Dog;
 import com.db.grad.javaapi.repository.DogsRepository;
 import org.apache.commons.lang3.ObjectUtils;
 
+import java.util.List;
+
 public class DogHandler {
 
     private DogsRepository itsDogRepo;
@@ -24,9 +26,20 @@ public class DogHandler {
     }
 
     public Dog getDogByName(String DogName) {
-        if(itsDogRepo.findByName(new Dog(DogName)) == null){
+        List<Dog> DogList = itsDogRepo.findByName(new Dog(DogName));
+        if(DogList == null){
             return null;
+        } else if(DogList.size() == 1){
+            return DogList.get(0);
         }
-        return new Dog();
+        return null;
+    }
+
+    public Dog getDogById(long id) {
+        return  itsDogRepo.findById(id);
+    }
+
+    public boolean removeDog(long id) {
+        return itsDogRepo.delete(itsDogRepo.findById(id));
     }
 }
